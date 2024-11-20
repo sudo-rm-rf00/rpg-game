@@ -7,17 +7,38 @@ int main()
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
 
-    sf::RenderWindow window(sf::VideoMode(800, 600), "RPG Game", sf::Style::Default, settings);
+    sf::RenderWindow window(sf::VideoMode(1600, 900), "RPG Game", sf::Style::Default, settings);
     
     //-------------------INITIALIZE----------------
 
+
     //-------------------LOAD----------------
+    //-------------------Skeleton----------------
+    sf::Texture skeletonTexture;
+    sf::Sprite skeletonSprite;
+
+    if (skeletonTexture.loadFromFile("Assets/Skeleton/Textures/spritesheet.png"))
+    {
+        std::cout << "Skeleton texture loaded!\n";
+        skeletonSprite.setTexture(skeletonTexture);
+        skeletonSprite.setPosition(sf::Vector2f(400, 100));
+
+        int XIndex = 0;
+        int YIndex = 2;
+
+        skeletonSprite.setTextureRect(sf::IntRect(XIndex * 64, YIndex * 64, 64, 64));
+    }
+    else
+        std::cout << "Skeleton texture failed to load!\n";
+    //-------------------Skeleton----------------
+
+    //-------------------Player----------------
     sf::Texture playerTexture;
     sf::Sprite playerSprite;
 
     if (playerTexture.loadFromFile("Assets/Player/Textures/spritesheet.png"))
     {
-        std::cout << "Player image loaded!\n";
+        std::cout << "Player texture loaded!\n";
         playerSprite.setTexture(playerTexture);
 
         int XIndex = 0;
@@ -26,10 +47,10 @@ int main()
         playerSprite.setTextureRect(sf::IntRect(XIndex * 64, YIndex * 64, 64, 64));
     }
     else
-    {
-        std::cout << "Player image failed to load!\n";
-    }
+        std::cout << "Player texture failed to load!\n";
+    //-------------------Player----------------
     //-------------------LOAD----------------
+
 
     // main game loop
     while (window.isOpen())
@@ -61,6 +82,7 @@ int main()
         //-------------------DRAW----------------
         window.clear(sf::Color::Black);
         window.draw(playerSprite);
+        window.draw(skeletonSprite);
         window.display();
         //-------------------DRAW----------------
     }
