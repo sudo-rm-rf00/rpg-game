@@ -12,7 +12,7 @@ void Skeleton::Initialize()
 
 void Skeleton::Load()
 {
-    if (texture.loadFromFile("Assets/Skeleton/Textures/spritesheet.png"))
+    if (texture.loadFromFile("../Assets/Skeleton/Textures/spritesheet.png"))
     {
         std::cout << "Skeleton texture loaded!\n";
         sprite.setTexture(texture);

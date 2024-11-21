@@ -10,7 +10,7 @@ void FrameRate::Initialize()
 
 void FrameRate::Load()
 {
-    if (font.loadFromFile("Assets/Fonts/arial.ttf"))
+    if (font.loadFromFile("../Assets/Fonts/arial.ttf"))
     {
         std::cout << "Font loaded!\n";
         frameRateText.setFont(font);

@@ -13,7 +13,7 @@ void Player::Initialize()
 
 void Player::Load()
 {
-    if (texture.loadFromFile("Assets/Player/Textures/spritesheet.png"))
+    if (texture.loadFromFile("../Assets/Player/Textures/spritesheet.png"))
     {
         std::cout << "Player texture loaded!\n";
         sprite.setTexture(texture);
