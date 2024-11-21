@@ -13,10 +13,10 @@ int main()
 
     sf::RenderWindow window(sf::VideoMode(1920, 1080), "RPG Game", sf::Style::Default, settings);
     window.setFramerateLimit(60);
-    FrameRate framerate;
+    FrameRate frameRate;
     
     //-------------------INITIALIZE----------------
-    framerate.Initialize();
+    frameRate.Initialize();
    
     //-------------------INITIALIZE----------------
     Player player;
@@ -26,7 +26,7 @@ int main()
     //-------------------INITIALIZE----------------
 
     //-------------------LOAD----------------
-    framerate.Load();
+    frameRate.Load();
     player.Load();
     skeleton.Load();
     //-------------------LOAD----------------
@@ -38,7 +38,7 @@ int main()
         sf::Time deltaTimeTimer = clock.restart();
         float deltaTime = deltaTimeTimer.asMilliseconds();
 
-        framerate.Update(deltaTime);
+        frameRate.Update(deltaTime);
         //-------------------UPDATE----------------
         sf::Event event;
         while (window.pollEvent(event))
@@ -56,7 +56,7 @@ int main()
         window.clear(sf::Color::Black);
         player.Draw(window);
         skeleton.Draw(window);
-        framerate.Draw(window);
+        frameRate.Draw(window);
         window.display();
         //-------------------DRAW----------------
     }

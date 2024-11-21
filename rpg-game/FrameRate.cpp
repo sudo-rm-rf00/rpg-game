@@ -1,6 +1,15 @@
 #include "FrameRate.h"
 #include <iostream>
 
+FrameRate::FrameRate() :
+    frameCount(0)
+{
+}
+
+FrameRate::~FrameRate()
+{
+}
+
 void FrameRate::Initialize()
 {
     sf::Text deltaTimeText;

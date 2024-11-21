@@ -11,9 +11,12 @@ private:
     sf::Clock fpsClock;
 
 public:
-    int frameCount = 0;
+    int frameCount;
 
 public:
+    FrameRate();
+    ~FrameRate();
+
     void Initialize();
     void Load(); 
     void Update(float deltaTime); 
