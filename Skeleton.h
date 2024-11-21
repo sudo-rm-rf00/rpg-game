@@ -13,6 +13,6 @@ public:
 public:
 	void Initialize(); // <- called once per App start
 	void Load(); // <- called once per App start
-	void Update(); // <- Once per frame
+	void Update(float deltaTime); // <- Once per frame
 	void Draw(sf::RenderWindow& window); // <- Once per frame
 };
