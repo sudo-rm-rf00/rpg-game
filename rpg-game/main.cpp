@@ -41,7 +41,7 @@ int main()
     while (window.isOpen())
     {
         sf::Time deltaTimeTimer = clock.restart();
-        float deltaTime = deltaTimeTimer.asMilliseconds();
+        double deltaTime = deltaTimeTimer.asMilliseconds();
 
         frameRate.Update(deltaTime);
         //-------------------UPDATE----------------

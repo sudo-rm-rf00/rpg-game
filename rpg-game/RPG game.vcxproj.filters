@@ -56,5 +56,8 @@
     <ClInclude Include="Map.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

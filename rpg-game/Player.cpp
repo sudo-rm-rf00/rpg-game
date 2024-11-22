@@ -42,21 +42,21 @@ void Player::Load()
         std::cout << "Player texture failed to load!\n";
 }
 
-void Player::Update(float deltaTime, Skeleton& skeleton, sf::Vector2f& mousePosition)
+void Player::Update(double deltaTime, Skeleton& skeleton, sf::Vector2f& mousePosition)
 {
     sf::Vector2f position = sprite.getPosition();
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-        sprite.setPosition(position + sf::Vector2f(1, 0) * playerSpeed * deltaTime);
+        sprite.setPosition(position + sf::Vector2f(1, 0) * playerSpeed * (float)deltaTime);
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-        sprite.setPosition(position + sf::Vector2f(0, 1) * playerSpeed * deltaTime);
+        sprite.setPosition(position + sf::Vector2f(0, 1) * playerSpeed * (float)deltaTime);
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-        sprite.setPosition(position + sf::Vector2f(-1, 0) * playerSpeed * deltaTime);
+        sprite.setPosition(position + sf::Vector2f(-1, 0) * playerSpeed * (float)deltaTime);
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-        sprite.setPosition(position + sf::Vector2f(0, -1) * playerSpeed * deltaTime);
+        sprite.setPosition(position + sf::Vector2f(0, -1) * playerSpeed * (float)deltaTime);
 
 
     //-------------------------------------------------------------
@@ -66,7 +66,7 @@ void Player::Update(float deltaTime, Skeleton& skeleton, sf::Vector2f& mousePosi
     if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && fireRateTimer >= maxFireRate)
     {
         bullets.push_back(Bullet());
-        int i = bullets.size() - 1;
+        size_t i = bullets.size() - 1;
         bullets[i].Initialize(sprite.getPosition(), mousePosition, 0.5f);
 
         fireRateTimer = 0;

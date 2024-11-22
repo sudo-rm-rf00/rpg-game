@@ -31,15 +31,15 @@ void FrameRate::Load()
     }
 }
 
-void FrameRate::Update(float deltaTime)
+void FrameRate::Update(double deltaTime)
 {
     frameCount++;
 
     elapsedTime += fpsClock.restart();
     if (elapsedTime.asSeconds() >= 1.0f) {
-        int fps = frameCount / elapsedTime.asSeconds();
+        float fps = frameCount / elapsedTime.asSeconds();
         std::string fpsCounter;
-        fpsCounter = "FPS: " + std::to_string(fps) + "  FrameTime: " + std::to_string(deltaTime);
+        fpsCounter = "FPS: " + std::to_string(static_cast<int>(std::round(fps))) + "  FrameTime: " + std::to_string(static_cast<int>(std::round(deltaTime)));
         frameRateText.setString(fpsCounter);
 
         frameCount = 0;

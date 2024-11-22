@@ -58,7 +58,7 @@ void Skeleton::Load()
         std::cout << "Skeleton texture failed to load!\n";
 }
 
-void Skeleton::Update(float deltaTime)
+void Skeleton::Update(double deltaTime)
 {
     if (health > 0)
     {
