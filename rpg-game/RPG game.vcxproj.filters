@@ -33,6 +33,9 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h">
@@ -48,6 +51,9 @@
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="Bullet.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>
