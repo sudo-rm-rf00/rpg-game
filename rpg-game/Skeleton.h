@@ -5,14 +5,26 @@ class Skeleton
 {
 private:
 	sf::Texture texture;
+
+	sf::Text healthText;
+	sf::Font font;
+
 public:
 	sf::Sprite sprite;
 
 	sf::RectangleShape boundingRectangle;
 	sf::Vector2i size;
+
+	int health;
+
 public:
-	void Initialize(); // <- called once per App start
-	void Load(); // <- called once per App start
-	void Update(float deltaTime); // <- Once per frame
-	void Draw(sf::RenderWindow& window); // <- Once per frame
+	Skeleton();
+	~Skeleton();
+
+	void ChangeHealth(int hp);
+
+	void Initialize(); 
+	void Load();
+	void Update(float deltaTime); 
+	void Draw(sf::RenderWindow& window); 
 };

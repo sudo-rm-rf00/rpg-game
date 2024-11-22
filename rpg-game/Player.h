@@ -1,14 +1,19 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+
 #include "Skeleton.h"
+#include "Bullet.h"
 
 class Player
 {
 private:
 	sf::Texture texture;
 
-	std::vector<sf::RectangleShape> bullets;
-	float bulletSpeed;
+	std::vector<Bullet> bullets;
+
+	float maxFireRate;
+	float fireRateTimer;
+
 	float playerSpeed;
 
 	sf::RectangleShape boundingRectangle;
@@ -20,8 +25,8 @@ public:
 	Player();
 	~Player();
 
-	void Initialize(); // <- called once per App start
-	void Load(); // <- called once per App start
-	void Update(float deltaTime, Skeleton& skeleton); // <- Once per frame
-	void Draw(sf::RenderWindow& window); // <- Once per frame
+	void Initialize(); 
+	void Load(); 
+	void Update(float deltaTime, Skeleton& skeleton, sf::Vector2f& mousePosition); 
+	void Draw(sf::RenderWindow& window);
 };
