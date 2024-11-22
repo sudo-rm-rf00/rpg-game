@@ -74,14 +74,10 @@ void Player::Update(double deltaTime, Skeleton& skeleton, sf::Vector2f& mousePos
 
     for (size_t i = 0; i < bullets.size(); i++)
     {
-        //sf::Vector2f bulletDirection = mousePosition - bullets[i].getPosition();
-        //bulletDirection = Math::NormalizeVector(bulletDirection);
-        //bullets[i].setPosition(bullets[i].getPosition() + bulletDirection * bulletSpeed * deltaTime);
-
         bullets[i].Update(deltaTime);
         if (skeleton.health > 0)
         { 
-            if (Math::DidRectCollide(bullets[i].GetGlobalBounds(), skeleton.sprite.getGlobalBounds()))
+            if (skeleton.sprite.getGlobalBounds().intersects(bullets[i].GetGlobalBounds()))
             {
                 skeleton.ChangeHealth(-10);
                 bullets.erase(bullets.begin() + i);
@@ -89,13 +85,16 @@ void Player::Update(double deltaTime, Skeleton& skeleton, sf::Vector2f& mousePos
         }
     }
 
-    boundingRectangle.setPosition(sprite.getPosition());
-    
-    /*
-    if (sprite.getGlobalBounds().intersects(skeleton.sprite.getGlobalBounds()))
-        std::cout << "Collision!!!!!!!\n";
-    */
+   /*    NOT WORKING AS INTENDED WITH DidRectCollide() FUNCTION!!!
 
+            if (Math::DidRectCollide(bullets[i].GetGlobalBounds(), skeleton.sprite.getGlobalBounds()))
+            {
+                skeleton.ChangeHealth(-10);
+                bullets.erase(bullets.begin() + i);
+            }
+   */
+
+    boundingRectangle.setPosition(sprite.getPosition());
 }
 
 void Player::Draw(sf::RenderWindow& window)
