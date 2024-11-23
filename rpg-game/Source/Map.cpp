@@ -2,7 +2,7 @@
 #include <iostream>
 
 Map::Map() :
-    tileWidth(16), tileHeight(16), totalTilesX(0), totalTilesY(0), totalTiles(0), mapWidth(3), mapHeight(2), tiles(nullptr)
+    totalTilesX(0), totalTilesY(0), totalTiles(0), tiles(nullptr), mapSprites(nullptr)
 {
 }
 
@@ -16,11 +16,14 @@ void Map::Initialize()
 
 void Map::Load()
 {
-    if (tileSheetTexture.loadFromFile("Assets/World/Prison/tilesheet.png"))
+    mapLoader.Load("Assets/Maps/level1.rmap", md);
+    mapSprites = new sf::Sprite[md.dataLength];
+
+    if (tileSheetTexture.loadFromFile(md.tilesheet))
     {
         std::cout << "World prison tilesheet loaded!\n";
-        totalTilesX = tileSheetTexture.getSize().x / tileWidth;
-        totalTilesY = tileSheetTexture.getSize().y / tileHeight;
+        totalTilesX = tileSheetTexture.getSize().x / md.tileWidth;
+        totalTilesY = tileSheetTexture.getSize().y / md.tileHeight;
 
         totalTiles = totalTilesX * totalTilesY;
 
@@ -37,7 +40,7 @@ void Map::Load()
                     continue;
                 }
                 tiles[i].id = i;
-                tiles[i].position = sf::Vector2i(x * tileWidth, y * tileHeight);
+                tiles[i].position = sf::Vector2i(x * md.tileWidth, y * md.tileHeight);
             }
         }
     }
@@ -46,19 +49,19 @@ void Map::Load()
         std::cout << "World prison tilesheet failed to load!\n";
     }
 
-    for (int y = 0; y < mapHeight; y++)
+    for (int y = 0; y < md.mapHeight; y++)
     {
-        for (int x = 0; x < mapWidth; x++)
+        for (int x = 0; x < md.mapWidth; x++)
         {
-            int i = x + y * mapWidth;
+            int i = x + y * md.mapWidth;
 
-            int index = mapNumbers[i];
+            int index = md.data[i];
 
             mapSprites[i].setTexture(tileSheetTexture);
 
-            mapSprites[i].setTextureRect(sf::IntRect(tiles[index].position.x, tiles[index].position.y, tileWidth, tileHeight));
-            mapSprites[i].setScale(sf::Vector2f(5, 5));
-            mapSprites[i].setPosition(sf::Vector2f(x * tileWidth * mapSprites[i].getScale().x, 100 + y * tileHeight * mapSprites[i].getScale().y));
+            mapSprites[i].setTextureRect(sf::IntRect(tiles[index].position.x, tiles[index].position.y, md.tileWidth, md.tileHeight));
+            mapSprites[i].setScale(sf::Vector2f(md.scaleX, md.scaleY));
+            mapSprites[i].setPosition(sf::Vector2f(x * md.tileWidth * md.scaleX, 100 + y * md.tileHeight * md.scaleY));
         }
 
     }
@@ -70,6 +73,6 @@ void Map::Update(double deltaTime)
 
 void Map::Draw(sf::RenderWindow& window)
 {
-    for (size_t i = 0; i < mapSize; i++)
+    for (size_t i = 0; i < md.dataLength; i++)
         window.draw(mapSprites[i]);
 }

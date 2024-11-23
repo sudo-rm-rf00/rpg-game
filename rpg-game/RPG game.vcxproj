@@ -171,6 +171,7 @@
     <ClInclude Include="Source\Bullet.h" />
     <ClInclude Include="Source\FrameRate.h" />
     <ClInclude Include="Source\Map.h" />
+    <ClInclude Include="Source\MapData.h" />
     <ClInclude Include="Source\MapLoader.h" />
     <ClInclude Include="Source\Math.h" />
     <ClInclude Include="Source\Player.h" />
