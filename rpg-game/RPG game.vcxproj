@@ -86,10 +86,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)Build\$(Platform)\$(Configuration)\bin\</OutDir>
     <IntDir>$(SolutionDir)Build\$(Platform)\$(Configuration)\intermediate\</IntDir>
+    <IncludePath>$(SolutionDir)Dependencies\SFML\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\SFML\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)Build\$(Platform)\$(Configuration)\bin\</OutDir>
     <IntDir>$(SolutionDir)Build\$(Platform)\$(Configuration)\intermediate\</IntDir>
+    <IncludePath>$(SolutionDir)Dependencies\SFML\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\SFML\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -154,32 +158,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="FrameRate.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Map.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="Math.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Skeleton.cpp" />
+    <ClCompile Include="Source\Bullet.cpp" />
+    <ClCompile Include="Source\FrameRate.cpp" />
+    <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Map.cpp" />
+    <ClCompile Include="Source\Math.cpp" />
+    <ClCompile Include="Source\Player.cpp" />
+    <ClCompile Include="Source\Skeleton.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Bullet.h" />
-    <ClInclude Include="FrameRate.h" />
-    <ClInclude Include="Map.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
-    </ClInclude>
-    <ClInclude Include="Math.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Skeleton.h" />
-    <ClInclude Include="Tile.h" />
+    <ClInclude Include="Source\Bullet.h" />
+    <ClInclude Include="Source\FrameRate.h" />
+    <ClInclude Include="Source\Map.h" />
+    <ClInclude Include="Source\Math.h" />
+    <ClInclude Include="Source\Player.h" />
+    <ClInclude Include="Source\Skeleton.h" />
+    <ClInclude Include="Source\Tile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -27,7 +27,7 @@ void Skeleton::Initialize()
 
 void Skeleton::Load()
 {
-    if (font.loadFromFile("../Assets/Fonts/arial.ttf"))
+    if (font.loadFromFile("Assets/Fonts/arial.ttf"))
     {
         std::cout << "Font loaded!\n";
         healthText.setFont(font);
@@ -38,7 +38,7 @@ void Skeleton::Load()
         std::cout << "Font failed to load!\n";
     }
 
-    if (texture.loadFromFile("../Assets/Skeleton/Textures/spritesheet.png"))
+    if (texture.loadFromFile("Assets/Skeleton/Textures/spritesheet.png"))
     {
         std::cout << "Skeleton texture loaded!\n";
         sprite.setTexture(texture);

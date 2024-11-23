@@ -16,7 +16,7 @@ void Map::Initialize()
 
 void Map::Load()
 {
-    if (tileSheetTexture.loadFromFile("../Assets/World/Prison/tilesheet.png"))
+    if (tileSheetTexture.loadFromFile("Assets/World/Prison/tilesheet.png"))
     {
         std::cout << "World prison tilesheet loaded!\n";
         totalTilesX = tileSheetTexture.getSize().x / tileWidth;
