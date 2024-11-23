@@ -5,6 +5,7 @@
 #include "Map.h"
 #include "Player.h"
 #include "Skeleton.h"
+#include "MapLoader.h"
 
 int main()
 {
@@ -23,6 +24,9 @@ int main()
     Map map;
     Player player;
     Skeleton skeleton;
+
+    MapLoader mapLoader;
+    mapLoader.Load("Assets/Maps/level1.rmap");
 
     map.Initialize();
     player.Initialize();

@@ -162,6 +162,7 @@
     <ClCompile Include="Source\FrameRate.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Map.cpp" />
+    <ClCompile Include="Source\MapLoader.cpp" />
     <ClCompile Include="Source\Math.cpp" />
     <ClCompile Include="Source\Player.cpp" />
     <ClCompile Include="Source\Skeleton.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="Source\Bullet.h" />
     <ClInclude Include="Source\FrameRate.h" />
     <ClInclude Include="Source\Map.h" />
+    <ClInclude Include="Source\MapLoader.h" />
     <ClInclude Include="Source\Math.h" />
     <ClInclude Include="Source\Player.h" />
     <ClInclude Include="Source\Skeleton.h" />
